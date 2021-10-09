@@ -7,12 +7,9 @@ import time
 
 def get_sys_logger():
     logger = logging.getLogger('run')
-    handler = logging.FileHandler(filename='FileDistinct.run.log', mode='w', encoding='utf-8')
     formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s')
-    handler.setFormatter(formatter)
     stdout_handler = logging.StreamHandler()
     stdout_handler.setFormatter(formatter)
-    logger.addHandler(handler)
     logger.addHandler(stdout_handler)
     logger.setLevel(level=logging.INFO)
     return logger
