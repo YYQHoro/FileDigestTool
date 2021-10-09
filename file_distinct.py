@@ -37,7 +37,7 @@ def get_file_md5(file_path):
 def get_result_writer(result_file_name):
     writer = logging.getLogger('resultLog')
     writer.setLevel(logging.INFO)
-    handler = logging.FileHandler(filename=result_file_name, encoding='gbk', mode='w')
+    handler = logging.FileHandler(filename=result_file_name, encoding='utf-8', mode='w')
     handler.setFormatter(logging.Formatter('%(message)s'))
     writer.addHandler(handler)
     return writer
@@ -58,7 +58,7 @@ def parse_args():
 
 
 def calculate_dir(scan_dir, result_file_name):
-    log.info('start scan files in %s, md5 result is writing to %s', scan_dir, result_file_name)
+    log.info('start scan files in %s, digest result is writing to %s', scan_dir, result_file_name)
     result_writer = get_result_writer(result_file_name)
     result_writer.info(
         'abspath,file_dir,file_name,modify_time,create_time,size(B),digest')
