@@ -8,6 +8,13 @@
 python3 file_distinct.py
 ```
 
+## 后台执行
+
+```shell
+nohup python3 file_distinct.py > run.log &
+tail -f run.log
+```
+
 ## 查看帮助信息
 
 ```shell
