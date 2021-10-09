@@ -55,6 +55,7 @@ def parse_args():
 
 
 def calculate_dir(scan_dir, result_file_name):
+    start_time = time.time()
     log.info('start scan files in %s, digest result is writing to %s', scan_dir, result_file_name)
     result_writer = get_result_writer(result_file_name)
     result_writer.info(
@@ -74,7 +75,8 @@ def calculate_dir(scan_dir, result_file_name):
             file_count += 1
             dir_file_count += 1
         log.info('[%s] files count %s', root, dir_file_count)
-    log.info('done. total files %s. csv result file was written to %s', file_count, result_file_name)
+    log.info('done. total files %s. csv result file was written to %s,cost %ss', file_count, result_file_name,
+             (time.time() - start_time))
 
 
 if __name__ == '__main__':
